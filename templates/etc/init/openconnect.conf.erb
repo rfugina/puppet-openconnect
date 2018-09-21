@@ -15,7 +15,7 @@ exec cat /etc/openconnect/network.passwd | openconnect \
   <%= @url -%> \
   --syslog \
   --no-dtls \
-  --script /etc/vpnc/vpnc-script \
+  --script '<%= @script %>' \
 <% unless @cacerts.empty? -%>
   --CAfile /etc/openconnect/network.cacerts \
 <% end -%>

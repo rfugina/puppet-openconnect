@@ -34,7 +34,7 @@ start ()
         --syslog \
         --no-dtls \
         -b \
-        --script /etc/vpnc/vpnc-script \
+        --script '<%= @script %>' \
         --pid /var/run/openconnect.pid \
         <% unless @cacerts.empty? -%>
         --CAfile /etc/openconnect/network.cacerts \

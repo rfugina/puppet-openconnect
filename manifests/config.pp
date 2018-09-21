@@ -12,6 +12,7 @@ class openconnect::config {
   $upstart    = $::openconnect::upstart
   $proxy      = $::openconnect::proxy
   $ensure     = $::openconnect::ensure
+  $script     = $::openconnect::script
 
   validate_string($url, $user, $pass, $cacerts, $servercert)
   validate_bool($dnsupdate)

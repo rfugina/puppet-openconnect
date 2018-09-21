@@ -42,6 +42,7 @@ class openconnect(
   $servercert = '',
   $authgroup = undef,
   $proxy = '',
+  $script = '/etc/vpnc/vpnc-script',
   $version = 'present',
   $ensure = 'present',
 ) inherits openconnect::params {
