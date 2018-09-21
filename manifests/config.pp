@@ -9,7 +9,6 @@ class openconnect::config {
   $dnsupdate  = $::openconnect::dnsupdate
   $cacerts    = $::openconnect::cacerts
   $servercert = $::openconnect::servercert
-  $upstart    = $::openconnect::upstart
   $proxy      = $::openconnect::proxy
   $ensure     = $::openconnect::ensure
   $script     = $::openconnect::script
@@ -42,7 +41,7 @@ class openconnect::config {
     ensure  => $cacerts_ensure,
     content => $cacerts,
   }
-  if $upstart {
+  if $::service_provider == 'upstart' {
     file { '/etc/init/openconnect.conf':
       ensure  => $ensure,
       mode    => '0600',
