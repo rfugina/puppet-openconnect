@@ -48,7 +48,7 @@ start ()
         <% unless @proxy.empty? -%>
         --proxy="<%= @proxy %>" \
         <% end -%>
-        --user <%= @user -%> \
+        --user '<%= @user -%>' \
         --passwd-on-stdin 
 
 }
