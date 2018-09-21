@@ -8,8 +8,10 @@ class openconnect::service {
 
   if $openconnect::ensure == 'absent' {
     $ensure = 'stopped'
+    $enable = false
   } else {
     $ensure = 'running'
+    $enable = true
   }
 
   # Disable `hasrestart` because otherwise upstart won't pick up
@@ -17,14 +19,14 @@ class openconnect::service {
   if $::service_provider == 'upstart' {
     service { $openconnect::params::service_name:
       ensure     => $ensure,
-      enable     => true,
+      enable     => $enable,
       hasstatus  => true,
       hasrestart => false,
     }
   } else {
     service { $openconnect::params::service_name:
       ensure     => $ensure,
-      enable     => true,
+      enable     => $enable,
       hasstatus  => true,
       hasrestart => true,
     }
