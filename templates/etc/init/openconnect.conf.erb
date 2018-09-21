@@ -17,7 +17,7 @@ exec cat /etc/openconnect/network.passwd | openconnect \
   --no-dtls \
   --script '<%= @script %>' \
 <% unless @cacerts.empty? -%>
-  --CAfile /etc/openconnect/network.cacerts \
+  --<%= @cafileparam %> /etc/openconnect/network.cacerts \
 <% end -%>
 <% if @authgroup -%>
   --authgroup=<%= @authgroup %>

@@ -3,6 +3,8 @@
 # This class is called from openconnect
 #
 class openconnect::config {
+  include openconnect::params
+
   $url        = $::openconnect::url
   $user       = $::openconnect::user
   $pass       = $::openconnect::pass
@@ -12,6 +14,8 @@ class openconnect::config {
   $proxy      = $::openconnect::proxy
   $ensure     = $::openconnect::ensure
   $script     = $::openconnect::script
+
+  $cafileparam = $::openconnect::params::cafileparam
 
   validate_string($url, $user, $pass, $cacerts, $servercert)
   validate_bool($dnsupdate)

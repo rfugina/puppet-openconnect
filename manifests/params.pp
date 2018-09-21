@@ -9,6 +9,12 @@ class openconnect::params {
       $package_name        = 'openconnect'
       $additional_packages = ['vpnc']
       $service_name        = 'openconnect'
+
+      if $::lsbdistcodename == 'xenial' {
+        $cafileparam = 'cafile'
+      } else {
+        $cafileparam = 'CAfile'
+      }
     }
     'RedHat': {
       $package_name        = 'openconnect'

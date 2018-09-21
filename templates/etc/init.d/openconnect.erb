@@ -37,7 +37,7 @@ start ()
         --script '<%= @script %>' \
         --pid /var/run/openconnect.pid \
         <% unless @cacerts.empty? -%>
-        --CAfile /etc/openconnect/network.cacerts \
+        --<%= @cafileparam %> /etc/openconnect/network.cacerts \
         <% end -%>
         <% if @authgroup -%>
         --authgroup=<%= @authgroup %> \
